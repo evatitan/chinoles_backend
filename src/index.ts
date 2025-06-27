@@ -1,9 +1,9 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 dotenv.config();
-import userRouter from './routes/user'; 
+import userRouter from './routes/users'; 
 import materialRouter from './routes/materials';
-import courseRouter from './routes/course';
+import courseRouter from './routes/courses';
 import ordersRouter from './routes/orders';
 
 const app = express();

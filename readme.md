@@ -2,6 +2,8 @@
 
 Chinoles is an online language academy platform for Chinese and Spanish courses.
 
+### Why this project ? 
+
 ## Backend API
 
 ### Status: ✅ Database and server setup complete
