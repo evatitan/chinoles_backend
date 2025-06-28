@@ -1,20 +1,23 @@
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET as string;
+const JWT_EXPIRES_IN = Number(process.env.JWT_EXPIRES_IN);
 
 if (!JWT_SECRET) {
   throw new Error("JWT_SECRET is not defined in environment variables");
 }
-
-const generateToken = (payload : JwtPayload) : string => { 
-  return jwt.sign(payload, JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN || "24h"
-  });
+if (!JWT_EXPIRES_IN) {
+  throw new Error("JWT_EXPIRES_IN is not defined in environment variables");
 }
 
-const verifyToken = (token: string): JwtPayload | string =>{ 
+const generateToken = (payload: object): string => {
+  const options: jwt.SignOptions = { expiresIn: JWT_EXPIRES_IN };
+  return jwt.sign(payload, JWT_SECRET, options);
+}
+
+const verifyToken = (token: string): object | string =>{ 
   try {
     return jwt.verify(token, JWT_SECRET)
   } catch (error) {

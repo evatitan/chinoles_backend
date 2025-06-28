@@ -5,6 +5,7 @@ import userRouter from './routes/users';
 import materialRouter from './routes/materials';
 import courseRouter from './routes/courses';
 import ordersRouter from './routes/orders';
+import authRouter from "./routes/admin/auth";
 
 const app = express();
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
@@ -18,7 +19,8 @@ app.get('/', async (req, res) => {
 app.use( "/users", userRouter)
 app.use( "/materials", materialRouter)
 app.use( "/courses", courseRouter)
-app.use( "/orders", ordersRouter)
+app.use("/orders", ordersRouter)
+app.use("/auth", authRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

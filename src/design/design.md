@@ -31,9 +31,25 @@
 
 2. Define your data models (User, Course, Order, etc.)
 
-# Database Schema
-1. users: id, user_name, password (hashed), avatar, role, language, level, email
-2. courses: id, title, description, price, img, category, duration, model
-3. orders: id, user_id, course_id
-4. materials: id, file, course_id
-5. permission: TODO
+# BACKEND
+
+**DONE**
+* TS+node.js+express.js
+* knex handles operations to db
+* JWT generates token and protect requests
+* ZOD handles data validation
+* JEST+supertest for API tests
+
+**TODO**
+* E2E tests
+* pagination with knex (performance) 
+
+# DATABASE
+
+**DONE**
+* setup
+
+**TODO**
+* tests
+
+
