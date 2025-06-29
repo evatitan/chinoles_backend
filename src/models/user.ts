@@ -15,26 +15,29 @@ export const findUserByEmail = async (email: string): Promise<boolean> => {
 }
 
 export const insertUser = async (user: User) => { 
-  const sql = `insert into users (user_name, password, avatar, role, language, level, email, created_at) values (?,?,?,?,?,?,?,?)`;
+  const sql1 = `insert into users (user_name, password, avatar, role, language, level, email, created_at) values (?,?,?,?,?,?,?,?)`;
+  const sql = `insert into users (user_name, password, gender, email, created_at) values (?,?,?,?,?)`;
   try {
     const {
       user_name,
       password_hash,
-      avatar,
-      role,
-      language,
-      level,
-      email ,
+      // avatar,
+      // role,
+      // language,
+      // level,
+      email,
+      gender,
       created_at
     } = user;
     const result = await db.raw(sql, [
       user_name,
       password_hash,
-      avatar,
-      role,
-      language,
-      level,
+      // avatar,
+      // role,
+      // language,
+      // level,
       email,
+      gender,
       created_at
     ]);
 
