@@ -10,7 +10,7 @@ cors({
   origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
+  credentials: true, // Set to true if you want to allow cookies to be sent
 });
 
 app.use(express.json());
